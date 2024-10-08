@@ -35,10 +35,10 @@ public class UserMealsUtil {
         final List<UserMealWithExcess> filteredMeals = new ArrayList<>();
         meals.forEach(meal -> {
             if (TimeUtil.isBetweenHalfOpen(meal.getTime(), startTime, endTime)) {
-                filteredMeals.add(new UserMealWithExcess(meal.getDateTime()
-                        , meal.getDescription()
-                        , meal.getCalories()
-                        , mapCaloriesDays.get(meal.getDate()) > caloriesPerDay));
+                filteredMeals.add(new UserMealWithExcess(meal.getDateTime(),
+                        meal.getDescription(),
+                        meal.getCalories(),
+                        mapCaloriesDays.get(meal.getDate()) > caloriesPerDay));
             }
         });
         return filteredMeals;
@@ -52,10 +52,10 @@ public class UserMealsUtil {
 
         return meals.stream()
                 .filter(meal -> TimeUtil.isBetweenHalfOpen(meal.getTime(), startTime, endTime))
-                .map(meal -> new UserMealWithExcess(meal.getDateTime()
-                        , meal.getDescription()
-                        , meal.getCalories()
-                        , mapCaloriesDays.get(meal.getDate()) > caloriesPerDay))
+                .map(meal -> new UserMealWithExcess(meal.getDateTime(),
+                        meal.getDescription(),
+                        meal.getCalories(),
+                        mapCaloriesDays.get(meal.getDate()) > caloriesPerDay))
                 .collect(Collectors.toList());
     }
 }
