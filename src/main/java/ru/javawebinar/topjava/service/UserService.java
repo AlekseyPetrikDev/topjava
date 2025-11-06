@@ -10,7 +10,6 @@ import ru.javawebinar.topjava.repository.UserRepository;
 import java.util.List;
 
 import static ru.javawebinar.topjava.util.ValidationUtil.checkNotFound;
-import static ru.javawebinar.topjava.util.ValidationUtil.checkNotFoundWithId;
 
 @Service
 public class UserService {
@@ -53,6 +52,6 @@ public class UserService {
     }
 
     public User getWithMeals(int id) {
-        return checkNotFoundWithId(repository.getWithMeals(id), id);
+        return checkNotFound(repository.getWithMeals(id), id);
     }
 }
