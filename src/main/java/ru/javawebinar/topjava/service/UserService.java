@@ -10,6 +10,7 @@ import ru.javawebinar.topjava.repository.UserRepository;
 import java.util.List;
 
 import static ru.javawebinar.topjava.util.ValidationUtil.checkNotFound;
+import static ru.javawebinar.topjava.util.ValidationUtil.checkNotFoundWithId;
 
 @Service
 public class UserService {
@@ -49,5 +50,9 @@ public class UserService {
     public void update(User user) {
         Assert.notNull(user, "user must not be null");
         checkNotFound(repository.save(user), user.id());
+    }
+
+    public User getWithMeals(int id) {
+        return checkNotFoundWithId(repository.getWithMeals(id), id);
     }
 }
